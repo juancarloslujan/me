@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estructura de un Prompt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+        }
+        .prompt-structure {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .component {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .component:hover {
+            background-color: #e0e0e0;
+        }
+        .component h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+        .component p {
+            margin: 10px 0 0;
+            display: none;
+        }
+        .active p {
+            display: block;
+        }
+        .active.instruccion {
+            background-color: #ff9999;
+            color: #800000;
+        }
+        .active.contexto {
+            background-color: #99ff99;
+            color: #008000;
+        }
+        .active.input {
+            background-color: #9999ff;
+            color: #000080;
+        }
+        .active.output {
+            background-color: #ffff99;
+            color: #808000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="prompt-structure">
+            <h2>Estructura de un Prompt</h2>
+            <div class="component instruccion" onclick="toggleDescription(this)">
+                <h3>1. Instrucción</h3>
+                <p>Especifica lo que quieres que haga el modelo de IA, debe ser clara y precisa.</p>
+            </div>
+            <div class="component contexto" onclick="toggleDescription(this)">
+                <h3>2. Contexto</h3>
+                <p>Proporciona el marco o la circunstancia en la que se debe realizar la tarea, esto ayuda a que la IA entienda mejor la solicitud.</p>
+            </div>
+            <div class="component input" onclick="toggleDescription(this)">
+                <h3>3. Input</h3>
+                <p>Información adicional o detalles específicos que se deben tener en cuenta al generar la respuesta.</p>
+            </div>
+            <div class="component output" onclick="toggleDescription(this)">
+                <h3>4. Output</h3>
+                <p>Indica cómo debería ser la respuesta, por ejemplo, el formato o el tipo de información esperada.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDescription(element) {
+            element.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
