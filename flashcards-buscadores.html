@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            height: 200px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .card-front {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+            font-size: 14px;
+            line-height: 1.4;
+            color: white;
+            overflow-y: auto;
+        }
+
+        #card1 .card-front, #card1 .card-back { background-color: #FF6B6B; }
+        #card2 .card-front, #card2 .card-back { background-color: #4ECDC4; }
+        #card3 .card-front, #card3 .card-back { background-color: #45B7D1; }
+        #card4 .card-front, #card4 .card-back { background-color: #96CEB4; }
+        #card5 .card-front, #card5 .card-back { background-color: #9B59B6; }
+        #card6 .card-front, #card6 .card-back { background-color: #F1C40F; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Seis buscadores con IAG</h1>
+        <div class="cards-container">
+            <div class="card" id="card1">
+                <div class="card-inner">
+                    <div class="card-front">Microsoft Copilot</div>
+                    <div class="card-back">
+                        Un asistente de IA integrado en el buscador Bing y otros productos de Microsoft. Combina búsqueda web con capacidades conversacionales y de generación de contenido. Puede responder preguntas, ayudar con tareas creativas y proporcionar información actualizada de la web.
+                    </div>
+                </div>
+            </div>
+            <div class="card" id="card2">
+                <div class="card-inner">
+                    <div class="card-front">Perplexity</div>
+                    <div class="card-back">
+                        Un motor de búsqueda conversacional que proporciona respuestas detalladas citando sus fuentes. Se destaca por su capacidad para sintetizar información de múltiples fuentes y presentarla de manera coherente, permitiendo profundizar en los temas mediante preguntas de seguimiento.
+                    </div>
+                </div>
+            </div>
+            <div class="card" id="card3">
+                <div class="card-inner">
+                    <div class="card-front">SearchGPT</div>
+                    <div class="card-back">
+                        Una herramienta de búsqueda que utiliza modelos de lenguaje para proporcionar respuestas más naturales y contextualizadas. Intenta combinar la precisión de los motores de búsqueda tradicionales con la capacidad conversacional de los modelos de IA.
+                    </div>
+                </div>
+            </div>
+            <div class="card" id="card4">
+                <div class="card-inner">
+                    <div class="card-front">Komo.ai</div>
+                    <div class="card-back">
+                        Un buscador que utiliza IA para proporcionar resultados más personalizados y relevantes. Se enfoca en entender el contexto y la intención detrás de las búsquedas para ofrecer respuestas más precisas y útiles.
+                    </div>
+                </div>
+            </div>
+            <div class="card" id="card5">
+                <div class="card-inner">
+                    <div class="card-front">Morphic</div>
+                    <div class="card-back">
+                        Un motor de búsqueda que emplea IA para organizar y presentar información de manera más estructurada y accesible. Busca simplificar la experiencia de búsqueda mediante una interfaz más intuitiva y resultados mejor organizados.
+                    </div>
+                </div>
+            </div>
+            <div class="card" id="card6">
+                <div class="card-inner">
+                    <div class="card-front">Consensus</div>
+                    <div class="card-back">
+                        Un buscador especializado en literatura científica y académica. Utiliza IA para analizar y sintetizar información de papers científicos, ayudando a los usuarios a encontrar y entender investigaciones relevantes más fácilmente. Se destaca por su capacidad para identificar consensos y desacuerdos.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('flipped');
+            });
+        });
+    </script>
+</body>
+</html>
